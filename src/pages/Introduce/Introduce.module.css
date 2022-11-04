@@ -1,0 +1,45 @@
+.introducePage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #edf0f5;
+}
+
+.introduceBlock {
+    margin: 0 60px;
+}
+
+.introduceFormAccount {
+    width: 400px;
+    background-color: white;
+    padding: 22px;
+    border-radius: 6px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+
+.introduceBar {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.introduceBlockBtnRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.introduceDscBlock {
+    width: 500px;
+}
+
+.introduceTitle {
+    font-size: 48px;
+    color: #1890ff;
+}
+
+.introduceDescription {
+    font-size: 26px;
+    font-weight: 600;
+    color: rgb(60, 60, 60);
+}

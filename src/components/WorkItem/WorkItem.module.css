@@ -1,0 +1,14 @@
+.itemBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.itemBtn {
+    font-size: 14px;
+}
+
+.itemBtnUpdate {
+    margin-right: 4px;
+}

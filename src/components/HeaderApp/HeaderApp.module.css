@@ -1,0 +1,17 @@
+.headerApp {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+
+.headerAppLogo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(239, 229, 229, 0.481);
+}
+
+.headerHollow {
+  height: 64px;
+}
