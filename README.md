@@ -37,7 +37,7 @@
 
 ### Ở phần start trong file package.json, hãy paste lệnh này vào:
 
-"start": "json-server --watch -p 4000 db.json"
+`"start": "json-server --watch -p 4000 db.json"`
 
 ### Bật terminal tại folder Json Server này, và chạy lệnh:
 
