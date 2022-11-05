@@ -1,50 +1,49 @@
-# Hướng dẫn chạy project
+# My Project
 
-## Bước 1: Clone project về máy
+## Main technology
 
-### `git@github.com:tungkemm/myproject.git`
+- react
+- redux-toolkit, redux thunk
+- react router dom
+- axios
+- ant design
 
-## Bước 2: Setup JsonServer
+## Install Server
 
-### Tạo 1 folder mới (không nằm trong folder đã clone project), đặt tên là JsonServer và cài đặt JsonSever theo hướng dẫn tại:
+- Move path
 
-`https://www.npmjs.com/package/json-server`
+```shell
+$ cd fakeAPI
+```
 
-### Ở file db.json, hãy paste data này vào:
+- Install package dependencies
 
-{
-    "listwork": [
-        {
-            "id": 1,
-            "namework": "Hoc js",
-            "priority": "Medium",
-            "status": false
-        }
-    ],
-    "listaccount": [
-        {
-        "id": 1,
-        "fullname": "admin",
-        "address": "Ha Noi",
-        "birthday": "26/11/2000",
-        "phone": 3213,
-        "username": "admin",
-        "password": "1",
-        "gmail": "kem@gmail.com"
-        }
-    ]
-}
+```shell
+$ yarn install # npm install
+```
 
-### Ở phần start trong file package.json, hãy paste lệnh này vào:
+- Run server
 
-`"start": "json-server --watch -p 4000 db.json"`
+```shell
+$ yarn start # npm run start
+```
 
-### Bật terminal tại folder Json Server này, và chạy lệnh:
+## Install App
 
-`npm start`
+- Clone the project
 
-## Bước 3: Chạy project
+```shell
+$ git clone git@github.com:tungkemm/myproject.git
+```
 
-### Mở lại folder đã clone project về máy, bật terminal tại folder này và chạy lệnh:
+- Install package dependencies
 
-`npm start`
+```shell
+$ yarn install # npm install
+```
+
+- Run app
+
+```shell
+$ yarn start # npm run start
+```
