@@ -21,8 +21,8 @@ const initialState = {
 };
 
 // GET list account
-export const getAccountWork = createAsyncThunk(
-  "work/getAccountWork",
+export const getAccount = createAsyncThunk(
+  "account/getAccount",
   async () => {
     try {
       const response = await axios.get("http://localhost:4000/listaccount");
@@ -35,7 +35,7 @@ export const getAccountWork = createAsyncThunk(
 
 // POST data len sever va return ve du lieu do
 export const addNewAccount = createAsyncThunk(
-  "work/addNewAccount",
+  "account/addNewAccount",
   async (newaccount) => {
     try {
       const response = await axios.post(
@@ -72,10 +72,10 @@ export const accountSlice = createSlice({
   extraReducers: (builder) => {
     builder
       // Get account vao store
-      .addCase(getAccountWork.pending, (state) => {
+      .addCase(getAccount.pending, (state) => {
         state.infoAccount.statusAccount = "loading";
       })
-      .addCase(getAccountWork.fulfilled, (state, action) => {
+      .addCase(getAccount.fulfilled, (state, action) => {
         state.infoAccount.listAccount = action.payload;
         state.infoAccount.statusAccount = "idle";
       })

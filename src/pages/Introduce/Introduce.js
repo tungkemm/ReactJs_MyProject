@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import FormLogin from "../../components/FormLogin/FormLogin";
 import FormRegister from "../../components/FormRegister/FormRegister";
 import {
-  getAccountWork,
   addNewAccount,
   updateCurrentAccountWhenLogin,
+  getAccount,
 } from "../../features/slices/accountSlice";
 import { accountSelector } from "../../features/selector";
 
@@ -22,16 +22,13 @@ const Introduce = () => {
 
   // khi component duoc mount
   useEffect(() => {
-    dispatch(getAccountWork());
+    dispatch(getAccount());
   }, []);
 
   // xu ly form dang ky
   const handleFormRegister = (data) => {
     const { fullname, birthday, address, phone, username, password, gmail } =
       data;
-    const accountDuplicate = infoAccount.listAccount.find(
-      (account) => account.username === username
-    );
     if (
       fullname !== "" &&
       address !== null &&
@@ -41,6 +38,10 @@ const Introduce = () => {
       password !== "" &&
       gmail !== ""
     ) {
+      const accountDuplicate = infoAccount.listAccount.find(
+        (account) => account.username === username
+      );
+
       if (!accountDuplicate) {
         dispatch(
           addNewAccount({
@@ -74,10 +75,11 @@ const Introduce = () => {
   // xu ly form dang nhap
   const handleFormLogin = (data) => {
     const { username, password } = data;
-    const accountDuplicate = infoAccount.listAccount.find(
-      (account) => account.username === username
-    );
     if (username !== "" && password !== "") {
+      const accountDuplicate = infoAccount.listAccount.find(
+        (account) => account.username === username
+      );
+
       if (accountDuplicate) {
         dispatch(
           updateCurrentAccountWhenLogin({
@@ -89,7 +91,7 @@ const Introduce = () => {
         Modal.success({
           content: "Dang nhap thanh cong",
         });
-        navigate("/home")
+        navigate("/home");
       } else {
         Modal.error({
           content: "Tai khoan khong ton tai !",

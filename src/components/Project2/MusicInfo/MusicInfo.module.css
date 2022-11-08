@@ -1,0 +1,32 @@
+.infoBlock {
+}
+
+.inforTitle {
+  text-align: center;
+}
+
+.inforTitle p {
+  color: #ec1f55;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 4px 0 0 0;
+}
+
+.inforTitle h2 {
+  font-size: 16px;
+}
+
+.infoCd {
+  display: flex;
+  margin: auto;
+  width: 122px;
+}
+
+.infoCdThumd {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  background-size: cover;
+  margin: auto;
+}

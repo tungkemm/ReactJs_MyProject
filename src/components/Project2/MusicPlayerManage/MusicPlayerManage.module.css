@@ -1,0 +1,10 @@
+.manageBlock {
+    width: 420px;
+    height: 580px;
+    background-color: white;
+    padding: 16px 26px;
+    margin: 10px auto auto auto;
+    border-radius: 6px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  }
+  

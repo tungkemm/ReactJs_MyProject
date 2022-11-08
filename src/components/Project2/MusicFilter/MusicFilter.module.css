@@ -1,0 +1,8 @@
+.filterBlock {
+    display: flex;
+    align-items: center;
+}
+
+.filterTitle {
+    margin-right: 10px;
+}

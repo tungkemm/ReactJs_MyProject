@@ -1,0 +1,43 @@
+.itemBlock {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #edf0f5;
+    padding: 6px 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 10%);
+    /* background-color: #ec1f55; */
+}
+
+.itemBlock:hover {
+    cursor: pointer;
+}
+
+.itemThumb {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-size: cover;
+    margin: 0 8px;
+}
+
+.itemBody {
+    flex: 1;
+    padding: 0 16px;
+}
+
+.itemTitle {
+    font-size: 16px;
+    margin: 0;
+}
+
+.itemAuthor {
+    font-size: 12px;
+    margin: 0;
+    color: #222;
+}
+
+.itemOption {
+    color: #999;
+    font-size: 16px;
+}

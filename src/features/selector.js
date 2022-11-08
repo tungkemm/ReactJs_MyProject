@@ -1,9 +1,11 @@
 import { createSelector } from "@reduxjs/toolkit";
 
+// //// account
 export const accountSelector = (state) => state.account.infoAccount;
 export const currentAccountSelector = (state) =>
   state.account.currentAccountLogin;
 
+// //// work
 export const workSelector = (state) => state.work.infoWork;
 export const searchTextSelector = (state) => state.work.filterWork.searchByText;
 export const searchStatusSelector = (state) =>
@@ -37,3 +39,11 @@ export const worksRemainingSelector = createSelector(
     };
   }
 );
+
+// //// musicplayer
+export const musicplayerSelector = (state) => state.musicplayer.infoMusic;
+export const currentMusicSelector = (state) => state.musicplayer.infoCurrentMusic.currentMusic;
+export const statusRandomSelector = (state) => state.musicplayer.infoCurrentMusic.statusRandom;
+export const currentIndexSelector = (state) => state.musicplayer.infoCurrentMusic.currentIndex;
+
+

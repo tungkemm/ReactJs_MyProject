@@ -1,0 +1,28 @@
+.controlBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.controlBtn {
+    color: #444;
+    padding: 8px;
+    font-size: 14px;
+    transition: all 0.4s;
+}
+
+.controlBtn:hover {
+    cursor: pointer;
+    /* opacity: 0.8; */
+}
+
+.controlBtnTooglePlay {
+    background-color: #ec1f55;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
