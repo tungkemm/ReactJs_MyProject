@@ -2,13 +2,21 @@
 
 ## Main technology
 
-- react
+- reactjs
 - redux-toolkit, redux thunk
 - react router dom
-- axios
-- ant design
+- axios (fakeapi by jsonserver)
+- ant design, css module
 
-## Install Server
+## Clone App
+
+- Clone the project
+
+```shell
+$ git clone git@github.com:tungkemm/myproject.git
+```
+
+## Install JsonServer
 
 - Move path
 
@@ -29,12 +37,6 @@ $ yarn start # npm run start
 ```
 
 ## Install App
-
-- Clone the project
-
-```shell
-$ git clone git@github.com:tungkemm/myproject.git
-```
 
 - Install package dependencies
 
