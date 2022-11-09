@@ -1,24 +1,29 @@
 import React, { memo } from "react";
 import clsx from "clsx";
 import styles from "./MusicControl.module.css";
-import { Slider } from "antd";
+import { Modal, Slider } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import {
   updateCurrentMusicWhenClickBtnNext,
   updateCurrentMusicWhenClickBtnPrev,
   updateStatusRandom,
 } from "../../../features/slices/musicplayerSlice";
-import { statusRandomSelector } from "../../../features/selector";
+import {
+  musicplayerSelector,
+  statusRandomSelector,
+} from "../../../features/selector";
 
 const MusicControl = ({
   audioElement,
   progress,
+  setProgress,
   isPlaying,
   setIsPlaying,
   isReplay,
   setIsReplay,
 }) => {
   const dispatch = useDispatch();
+  const infoMusicplayer = useSelector(musicplayerSelector);
   const statusRandom = useSelector(statusRandomSelector);
 
   // xu ly khi click btn play/pause bai hat
@@ -29,20 +34,33 @@ const MusicControl = ({
 
   // xu ly khi tua bai hat (onChange slider)
   const handleClickSlider = (value) => {
+    setProgress(value)
     const duration = audioElement.current.duration;
     audioElement.current.currentTime = (duration * value) / 100; // update lai thoi gian hien tai cua bai hat
   };
 
   // xu ly khi click btn next bai hat
   const handleClickBtnNext = () => {
-    dispatch(updateCurrentMusicWhenClickBtnNext());
-    setIsPlaying(true);
+    if (infoMusicplayer.listMusic.length > 0) {
+      dispatch(updateCurrentMusicWhenClickBtnNext());
+      setIsPlaying(true);
+    } else {
+      Modal.error({
+        content: "Ko the next vi chua co bai hat nao :D",
+      });
+    }
   };
 
   // xu ly khi click btn prev bai hat
   const handleClickBtnPrev = () => {
-    dispatch(updateCurrentMusicWhenClickBtnPrev());
-    setIsPlaying(true);
+    if (infoMusicplayer.listMusic.length > 0) {
+      dispatch(updateCurrentMusicWhenClickBtnPrev());
+      setIsPlaying(true);
+    } else {
+      Modal.error({
+        content: "Ko the prev vi chua co bai hat nao :D",
+      });
+    }
   };
 
   // xu ly khi click btn random

@@ -5,7 +5,7 @@ import MusicItem from "../MusicItem/MusicItem";
 import { useSelector } from "react-redux";
 import { musicplayerSelector } from "../../../features/selector";
 
-const MusicList = () => {
+const MusicList = ({ setIsPlaying }) => {
   const infoMusicplayer = useSelector(musicplayerSelector);
 
   return (
@@ -14,7 +14,12 @@ const MusicList = () => {
         <div>Loading ...</div>
       ) : infoMusicplayer.listMusic.length > 0 ? (
         infoMusicplayer.listMusic.map((item, index) => (
-          <MusicItem key={item.id} dataMusicItem={item} index={index}/>
+          <MusicItem
+            key={item.id}
+            dataMusicItem={item}
+            index={index}
+            setIsPlaying={setIsPlaying}
+          />
         ))
       ) : (
         <div>Chua co bai nhac nao :D</div>

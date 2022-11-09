@@ -17,12 +17,11 @@ const MusicPlayerManage = () => {
   const audioElement = useRef();
   const [progress, setProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isReplay, setIsReplay] = useState(true);
+  const [isReplay, setIsReplay] = useState(false);
 
   // luon play bai hat moi khi next/prev/bai hat ket thuc/chon bai tu list
   useEffect(() => {
     isPlaying && audioElement.current.play();
-    setProgress(0)
   }, [currentMusic]);
 
   // xu ly khi bai hat chay
@@ -50,6 +49,7 @@ const MusicPlayerManage = () => {
       <MusicControl
         audioElement={audioElement}
         progress={progress}
+        setProgress={setProgress}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         isReplay={isReplay}
@@ -61,7 +61,7 @@ const MusicPlayerManage = () => {
         onTimeUpdate={onPlaying}
         onEnded={onEnded}
       />
-      <MusicList />
+      <MusicList setIsPlaying={setIsPlaying} />
     </div>
   );
 };

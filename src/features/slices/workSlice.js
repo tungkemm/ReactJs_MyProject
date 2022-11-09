@@ -132,10 +132,11 @@ export const workSlice = createSlice({
         state.infoWork.statusWork = "idle";
       })
       // chua biet xu ly khi rejected
-      // .addCase(getListWork.rejected, (state) => {
-      //   state.infoWork.listWork = [];
-      //   state.infoWork.statusWork = "idle";
-      // })
+      .addCase(getListWork.rejected, (state) => {
+        console.log(state)
+        // state.infoWork.listWork = [];
+        // state.infoWork.statusWork = "idle";
+      })
 
       // Add new work
       .addCase(addNewWork.pending, (state) => {

@@ -53,7 +53,7 @@ export const musicplayerSlice = createSlice({
   initialState,
 
   reducers: {
-    // current music
+    /////// current music and current index music
     getCurrentMusic: (state) => {
       state.infoCurrentMusic.currentMusic =
         state.infoMusic.listMusic[state.infoCurrentMusic.currentIndex];
@@ -104,6 +104,13 @@ export const musicplayerSlice = createSlice({
       state.infoCurrentMusic.currentMusic = action.payload;
       state.infoCurrentMusic.currentIndex = action.payload.indexsong;
     },
+
+    ////// list music
+    deleteMusic: (state, action) => {
+      const newListMusic = state.infoMusic.listMusic.filter(itemMusic => itemMusic.id !== action.payload)
+      state.infoMusic.listMusic = newListMusic
+      //van de: khi load lai listMusic, index khi map bi thay doi -> dieu kien active bi false
+    }
   },
 });
 
@@ -113,6 +120,7 @@ export const {
   updateCurrentMusicWhenClickBtnPrev,
   updateStatusRandom,
   updateInfoCurrentMusicWhenClickMusicItem,
+  deleteMusic
 } = musicplayerSlice.actions;
 
 export default musicplayerSlice.reducer;
