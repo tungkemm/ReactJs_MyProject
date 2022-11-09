@@ -19,7 +19,7 @@ const MusicPlayerManage = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
 
-  // luon play bai hat moi khi next/prev/bai hat ket thuc/chon bai tu list
+  // luon play bai hat moi current music thay doi
   useEffect(() => {
     isPlaying && audioElement.current.play();
   }, [currentMusic]);

@@ -3,32 +3,31 @@ import clsx from "clsx";
 import styles from "./MusicItem.module.css";
 import { Modal, Popconfirm } from "antd";
 import { useSelector, useDispatch } from "react-redux";
-import { currentIndexSelector } from "../../../features/selector";
+import { currentMusicSelector } from "../../../features/selector";
 import { deleteMusic, updateInfoCurrentMusicWhenClickMusicItem } from "../../../features/slices/musicplayerSlice";
 
-const MusicItem = ({ dataMusicItem, index, setIsPlaying }) => {
+const MusicItem = ({ dataMusicItem, setIsPlaying }) => {
   const { id, namesong, singer, image } = dataMusicItem;
 
   const dispatch = useDispatch();
-  const currentIndex = useSelector(currentIndexSelector);
+  const currentMusic = useSelector(currentMusicSelector)
  
   // xu ly khi click vao 1 bai hat trong list
   const handleClickItem = (data) => {
-    if (index !== currentIndex) {
-      const newData = { ...data, indexsong: index };
-      dispatch(updateInfoCurrentMusicWhenClickMusicItem(newData));
+    if (currentMusic.id !== id) {
+      dispatch(updateInfoCurrentMusicWhenClickMusicItem(data));
       setIsPlaying(true);
     }
   };
 
   // xu ly khi xoa bai hat
   const handleDeleteMusic = (e, idsong) => {
-    e.stopPropagation() // ngan noi bot khi click vao 'co'
-    if (index !== currentIndex) {
-      // dispatch(deleteMusic(idsong))
-      Modal.info({
-        content: "Dang code chuc nang nay ...",
-      });
+    e.stopPropagation() // ngan noi bot khi click vao btn 'co'
+    if (currentMusic.id !== id) {
+      dispatch(deleteMusic(idsong))
+      // Modal.info({
+      //   content: "Dang code chuc nang nay ...",
+      // });
     }
     else {
       Modal.error({
@@ -41,7 +40,7 @@ const MusicItem = ({ dataMusicItem, index, setIsPlaying }) => {
     <div
       className={clsx(styles.itemBlock)}
       style={{
-        ...(index === currentIndex && { backgroundColor: "#ec1f55" }),
+        ...(currentMusic.id === id && { backgroundColor: "#ec1f55" }),
       }}
       onClick={() => handleClickItem(dataMusicItem)}
     >
@@ -61,7 +60,7 @@ const MusicItem = ({ dataMusicItem, index, setIsPlaying }) => {
         title="Ban co muon xoa bai hat nay khong?"
         placement="right"
         onConfirm={(e) => handleDeleteMusic(e, id)}
-        onCancel={(e) => e.stopPropagation()} //ngan noi bot khi click vao 'khong'
+        onCancel={(e) => e.stopPropagation()} //ngan noi bot khi click vao btn 'khong'
         cancelText="Khong"
         okText="Co"
         default

@@ -17,7 +17,7 @@ const WorkList = () => {
           <WorkItem key={item.id} dataWorkItem={item} />
         ))
       ) : (
-        <div>Chua co du lieu</div>
+        <div>Chua co cong viec nao</div>
       )}
     </div>
   );

@@ -21,19 +21,19 @@ export const worksRemainingSelector = createSelector(
   searchPrioritySelector,
   (infoWork, status, searchText, priority) => {
     return {
-      statusWork: infoWork.statusWork,
-      listWork: infoWork.listWork.filter((work) => {
+      ...infoWork,
+      listWork: infoWork.listWork.filter((item) => {
         if (status === "All") {
           return priority.length
-            ? work.namework.includes(searchText) &&
-                priority.includes(work.priority)
-            : work.namework.includes(searchText);
+            ? item.namework.includes(searchText) &&
+                priority.includes(item.priority)
+            : item.namework.includes(searchText);
         }
 
         return (
-          work.namework.includes(searchText) &&
-          (status === "Completed" ? work.status : !work.status) &&
-          (priority.length ? priority.includes(work.priority) : true)
+          item.namework.includes(searchText) &&
+          (status === "Completed" ? item.status : !item.status) &&
+          (priority.length ? priority.includes(item.priority) : true)
         );
       }),
     };
@@ -42,8 +42,27 @@ export const worksRemainingSelector = createSelector(
 
 // //// musicplayer
 export const musicplayerSelector = (state) => state.musicplayer.infoMusic;
-export const currentMusicSelector = (state) => state.musicplayer.infoCurrentMusic.currentMusic;
-export const statusRandomSelector = (state) => state.musicplayer.infoCurrentMusic.statusRandom;
-export const currentIndexSelector = (state) => state.musicplayer.infoCurrentMusic.currentIndex;
+export const searchTextMusicSelector = (state) =>
+  state.musicplayer.filterMusic.searchbyText;
+export const currentMusicSelector = (state) =>
+  state.musicplayer.infoCurrentMusic.currentMusic;
+export const statusRandomSelector = (state) =>
+  state.musicplayer.infoCurrentMusic.statusRandom;
+export const currentIndexSelector = (state) =>
+  state.musicplayer.infoCurrentMusic.currentIndex;
 
-
+// select ra list music khi da qua tim kiem
+export const musicsRemainingSelector = createSelector(
+  musicplayerSelector,
+  searchTextMusicSelector,
+  (infoMusic, searchText) => {
+    return {
+      ...infoMusic,
+      listMusic: infoMusic.listMusic.filter((item) => {
+        return (
+          item.namesong.includes(searchText) || item.singer.includes(searchText)
+        );
+      }),
+    };
+  }
+);

@@ -1,4 +1,5 @@
 .workListBlock {
-    height: 216px;
-    margin-bottom: 14px;
+    height: 226px;
+    margin-bottom: 18px;
+    overflow-y: scroll;
 }

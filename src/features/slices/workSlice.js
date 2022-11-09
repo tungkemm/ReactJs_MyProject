@@ -109,7 +109,7 @@ export const workSlice = createSlice({
     //   state.infoWork.listWork = newListWork;
     // },
 
-    /////// Filter
+    /////// Filter list work
     updateFilterText: (state, action) => {
       state.filterWork.searchByText = action.payload;
     },
