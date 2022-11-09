@@ -20,7 +20,7 @@ const Introduce = () => {
   const infoAccount = useSelector(accountSelector);
   const [isOpenModalRegister, setIsOpenModalRegister] = useState(false);
 
-  // khi component duoc mount
+  // // khi component dc mount, dispatch de lay du lieu list account tu server
   useEffect(() => {
     dispatch(getAccount());
   }, []);

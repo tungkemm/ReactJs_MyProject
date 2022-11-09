@@ -10,7 +10,7 @@ const Project2 = () => {
   const dispatch = useDispatch()
   const infoMusicplayer = useSelector(musicplayerSelector);
 
-  // khi component dc mount, thi dispatch de lay data bai hat dau tien trong dsach bai hat
+  // khi component dc mount, dispatch de lay data bai hat dau tien trong dsach bai hat
   useEffect(() => {
     if(infoMusicplayer.listMusic.length > 0) {
       dispatch(getCurrentMusic())

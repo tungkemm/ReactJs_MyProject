@@ -8,6 +8,7 @@ import { getListWork } from '../../features/slices/workSlice';
 const Project1 = () => {
   const dispatch = useDispatch()
 
+  // khi component dc mount, dispatch de lay du lieu list work tu server
   useEffect(() => {
     dispatch(getListWork())
   }, [])
