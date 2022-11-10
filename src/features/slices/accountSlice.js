@@ -15,7 +15,7 @@ export const getAccount = createAsyncThunk("account/getAccount", async () => {
     const response = await axios.get("http://localhost:4000/listaccount");
     return response.data;
   } catch (error) {
-    console.error("loi call api", error);
+    console.error("loi call api khi get list account", error);
   }
 });
 
@@ -30,7 +30,7 @@ export const addNewAccount = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      console.error("loi call api", error);
+      console.error("loi call api khi add new account", error);
     }
   }
 );

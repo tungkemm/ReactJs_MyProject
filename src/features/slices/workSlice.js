@@ -23,7 +23,7 @@ export const getListWork = createAsyncThunk("work/getListWork", async () => {
     const response = await axios.get("http://localhost:4000/listwork");
     return response.data;
   } catch (error) {
-    console.error("loi call api", error);
+    console.error("loi call api khi get list work", error);
   }
 });
 
@@ -38,7 +38,7 @@ export const addNewWork = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      console.error("loi call api", error);
+      console.error("loi call api khi add new work", error);
     }
   }
 );
@@ -50,7 +50,7 @@ export const deleteWork = createAsyncThunk("work/deleteWork", async (id) => {
     const response = await axios.get("http://localhost:4000/listwork");
     return response.data;
   } catch (error) {
-    console.error("loi call api", error);
+    console.error("loi call api khi delete work", error);
   }
 });
 
@@ -68,7 +68,7 @@ export const updateStatusWork = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      console.error("loi call api", error);
+      console.error("loi call api khi update status work", error);
     }
   }
 );
@@ -87,7 +87,7 @@ export const updateWork = createAsyncThunk("work/updateWork", async (data) => {
     );
     return response.data;
   } catch (error) {
-    console.error("loi call api", error);
+    console.error("loi call api khi update work", error);
   }
 });
 
