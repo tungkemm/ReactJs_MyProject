@@ -5,14 +5,9 @@ const initialState = {
   infoWork: {
     statusWork: "idle",
     listWork: [
-      // {
-      //   id: 1,
-      //   namework: "Dau lung",
-      //   priority: "Medium",
-      //   status: true,
-        //   1 - false: chua hoan thanh
-        //   2 - true: da hoan thanh cong viec
-      // },
+      // status:
+      // 1 - false - chua hoan thanh
+      // 2 - true -da hoan thanh cong viec
     ],
   },
   filterWork: {
@@ -99,16 +94,8 @@ export const updateWork = createAsyncThunk("work/updateWork", async (data) => {
 export const workSlice = createSlice({
   name: "work",
   initialState,
-  
-  reducers: {
-    //////// Todo
-    // deleteWork: (state, action) => {
-    //   const newListWork = state.infoWork.listWork.filter(
-    //     (work) => work.id !== action.payload
-    //   );
-    //   state.infoWork.listWork = newListWork;
-    // },
 
+  reducers: {
     /////// Filter list work
     updateFilterText: (state, action) => {
       state.filterWork.searchByText = action.payload;
@@ -131,12 +118,13 @@ export const workSlice = createSlice({
         state.infoWork.listWork = action.payload;
         state.infoWork.statusWork = "idle";
       })
+
       // chua biet xu ly khi rejected
-      .addCase(getListWork.rejected, (state) => {
-        console.log(state)
+      // .addCase(getListWork.rejected, (state) => {
+      //   console.log(state);
         // state.infoWork.listWork = [];
         // state.infoWork.statusWork = "idle";
-      })
+      // })
 
       // Add new work
       .addCase(addNewWork.pending, (state) => {

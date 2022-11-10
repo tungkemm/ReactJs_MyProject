@@ -28,7 +28,8 @@ const MusicControl = ({
 
   // xu ly khi click btn play/pause bai hat
   const handleClickBtnTooglePlay = () => {
-    isPlaying ? audioElement.current.pause() : audioElement.current.play();
+    const audio = audioElement.current
+    isPlaying ? audio.pause() : audio.play();
     setIsPlaying(!isPlaying);
   };
 

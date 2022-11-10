@@ -21,7 +21,12 @@ const MusicPlayerManage = () => {
 
   // luon play bai hat moi khi current music thay doi
   useEffect(() => {
-    isPlaying && audioElement.current.play();
+    const audio = audioElement.current
+    isPlaying && audio.play();
+
+    return(() => {
+      audio.pause()
+    })
   }, [currentMusic]);
 
   // xu ly khi bai hat chay
